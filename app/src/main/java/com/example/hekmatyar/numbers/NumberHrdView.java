@@ -238,9 +238,7 @@ public class NumberHrdView extends View {
         number_8_left=padding+floatX;number_8_right=floatX*2+padding;number_8_top=floatY*2+padding;number_8_bottom=mHeight-padding;
     }
 
-    /**
-     * 每次移动格子，记录空白格子的位置
-     * */
+    //每次移动格子，记录空白格子的位置
     private void createView_9(int num1,int num2,int num3,int num4) {
         Log.i("createView_9",num1+"==="+num2+"==="+num3+"==="+num4);
         rect0_x_0=num1;
@@ -249,9 +247,7 @@ public class NumberHrdView extends View {
         rect0_y_1=num4;
     }
 
-    /**
-     * 第一个格子的位置
-     * */
+    //各个格子的位置
     private void createView_1() {
         rect1_x_0=padding;
         rect1_x_1=floatX+padding;
@@ -260,9 +256,7 @@ public class NumberHrdView extends View {
         rect1_x_t=(floatX+padding)/2;
         rect1_y_t=(floatY+padding)/2;
     }
-    /**
-     * 第二个格子的位置
-     * */
+
     private void createView_2() {
         rect2_x_0=padding+floatX;
         rect2_x_1=floatX*2+padding;
@@ -271,9 +265,7 @@ public class NumberHrdView extends View {
         rect2_x_t=(floatX*2+padding)-floatX_6;
         rect2_y_t=(floatY+padding)/2;
     }
-    /**
-     * 第三个格子的位置
-     * */
+
     private void createView_3() {
         rect3_x_0=padding+floatX*2;
         rect3_x_1=mWidth-padding;
@@ -282,9 +274,7 @@ public class NumberHrdView extends View {
         rect3_x_t=(mWidth-padding)-floatX_6;
         rect3_y_t=(floatY+padding)/2;
     }
-    /**
-     * 第四个格子的位置
-     * */
+
     private void createView_4() {
         rect4_x_0=padding;
         rect4_x_1=floatX+padding;
@@ -293,9 +283,7 @@ public class NumberHrdView extends View {
         rect4_x_t=(floatX+padding)/2;
         rect4_y_t=(floatY*2+padding)-floatY_6;
     }
-    /**
-     * 第五个格子的位置
-     * */
+
     private void createView_5() {
         rect5_x_0=padding+floatX;
         rect5_x_1=floatX*2+padding;
@@ -304,9 +292,7 @@ public class NumberHrdView extends View {
         rect5_x_t=(floatX*2+padding)-floatX_6;
         rect5_y_t=(floatY*2+padding)-floatY_6;
     }
-    /**
-     * 第六个格子的位置
-     * */
+
     private void createView_6(){
         rect6_x_0=padding+floatX*2;
         rect6_x_1=mWidth-padding;
@@ -315,9 +301,7 @@ public class NumberHrdView extends View {
         rect6_x_t=(mWidth-padding)-floatX_6;
         rect6_y_t=(floatY*2+padding)-floatY_6;
     }
-    /**
-     * 第七个格子的位置
-     * */
+
     private void createView_7(){
         rect7_x_0=padding;
         rect7_x_1=floatX+padding;
@@ -326,9 +310,7 @@ public class NumberHrdView extends View {
         rect7_x_t=(floatX+padding)/2;
         rect7_y_t=(mHeight-padding)-floatY_6;
     }
-    /**
-     * 第八个格子的位置
-     * */
+
     private void createView_8() {
         rect8_x_0=padding+floatX;
         rect8_x_1=floatX*2+padding;
@@ -369,7 +351,6 @@ public class NumberHrdView extends View {
                 }
 
                 if(downX>rect1_x_0&&downX<rect1_x_1&&downY>rect1_y_0&&downY<rect1_y_1) {//移动了1号
-                    Log.i("Scroll2048","111111");
                     if(Math.abs(upY-downY)>floatY/2&&Math.abs(upX-downX)<floatX/2){
                         //纵向移动
                         if(upY>downY&&upY>floatY+padding&&upY<floatY*2+padding) {//第一行往下
@@ -396,7 +377,6 @@ public class NumberHrdView extends View {
 
 
                 }else if(downX>rect2_x_0&&downX<rect2_x_1&&downY>rect2_y_0&&downY<rect2_y_1) {//移动了2号
-                    Log.i("Scroll2048","222222");
                     if(Math.abs(upY-downY)>floatY/2&&Math.abs(upX-downX)<floatX/2){
                         //纵向移动
                         if(upY>downY&&upY>floatY+padding&&upY<floatY*2+padding) {//第一行往下
@@ -423,7 +403,6 @@ public class NumberHrdView extends View {
 
 
                 }else if(downX>rect3_x_0&&downX<rect3_x_1&&downY>rect3_y_0&&downY<rect3_y_1) {//移动了3号
-                    Log.i("Scroll2048","333333");
                     if(Math.abs(upY-downY)>floatY/2&&Math.abs(upX-downX)<floatX/2){
                         //纵向移动
                         if(upY>downY&&upY>floatY+padding&&upY<floatY*2+padding) {//第一行往下
@@ -450,7 +429,6 @@ public class NumberHrdView extends View {
 
 
                 }else if(downX>rect4_x_0&&downX<rect4_x_1&&downY>rect4_y_0&&downY<rect4_y_1) {//移动了4号
-                    Log.i("Scroll2048","4444");
                     if(Math.abs(upY-downY)>floatY/2&&Math.abs(upX-downX)<floatX/2){
                         //纵向移动
                         if(upY>downY&&upY>floatY+padding&&upY<floatY*2+padding) {//第一行往下
@@ -545,7 +523,6 @@ public class NumberHrdView extends View {
                     }
 
                 }else if(downX>rect7_x_0&&downX<rect7_x_1&&downY>rect7_y_0&&downY<rect7_y_1){//移动了7号
-                    Log.i("Scroll2048","7777");
                     //判断是横向还是纵向移动
                     if(Math.abs(upY-downY)>floatY/2&&Math.abs(upX-downX)<floatX/2){
                         //纵向移动
@@ -2217,7 +2194,7 @@ public class NumberHrdView extends View {
                     listener.success(numberType);
                 }
                 break;
-            case 4://"4","5","3","7","6","2","8","1"
+            case 6://"4","5","3","7","6","2","8","1"
                 if(       rect1.top==number_4_top&&rect1.bottom==number_4_bottom&&rect1.left==number_4_left&&rect1.right==number_4_right
                         &&rect2.top==number_5_top&&rect2.bottom==number_5_bottom&&rect2.left==number_5_left&&rect2.right==number_5_right
                         &&rect3.top==number_3_top&&rect3.bottom==number_3_bottom&&rect3.left==number_3_left&&rect3.right==number_3_right
@@ -2229,7 +2206,7 @@ public class NumberHrdView extends View {
                     listener.success(numberType);
                 }
                 break;
-            case 6://"7","9","3","5","4","1","8","2"
+            case 4://"7","9","3","5","4","1","8","2"
                 if(rect1.top==number_7_top&&rect1.bottom==number_7_bottom&&rect1.left==number_7_left&&rect1.right==number_7_right
                         &&rect2.top==number_6_top&&rect2.bottom==number_6_bottom&&rect2.left==number_6_left&&rect2.right==number_6_right
                         &&rect3.top==number_3_top&&rect3.bottom==number_3_bottom&&rect3.left==number_3_left&&rect3.right==number_3_right
@@ -2241,7 +2218,7 @@ public class NumberHrdView extends View {
                     listener.success(6);
                 }
                 break;
-            case 2://"赵","李","王","周","钱","郑","吴","孙" 1 4 8 5 2 7 6 3
+            case 2:// 1 4 8 5 2 7 6 3
                 if(rect1.top==number_1_top&&rect1.bottom==number_1_bottom&&rect1.left==number_1_left&&rect1.right==number_1_right
                         &&rect2.top==number_4_top&&rect2.bottom==number_4_bottom&&rect2.left==number_4_left&&rect2.right==number_4_right
                         &&rect3.top==number_8_top&&rect3.bottom==number_8_bottom&&rect3.left==number_8_left&&rect3.right==number_8_right

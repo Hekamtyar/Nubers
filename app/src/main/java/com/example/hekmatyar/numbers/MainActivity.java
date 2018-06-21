@@ -34,16 +34,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String[] number_01={"VIII","VI","III","I","V","VII","II","IV"};
     private String[] number_02={"F","A","D","C","H","B","G","E"};
     private String[] number_03={"5","2","6","7","4","1","8","3"};
-    private String[] number_04={"IV","V","III","VII","VII","II","VIII","I"};
+    private String[] number_06={"IV","V","III","VII","VI","II","VIII","I"};
     private String[] number_05={"7","6","3","5","4","1","8","2"};
-    private String[] number_06={"A","D","H","E","B","G","F","C"};
+    private String[] number_04={"A","D","H","E","B","G","F","C"};
 
     private String[] number_01_color={"#8B7500","#FF83FA","#EE9A49","#FF3030","#F08080","#CD0000","#E0E0E0","#C1CDC1"};
     private String[] number_02_color={"#EE2C2C","#8B8B00","#A2CD5A","#EEAD0E","#7D9EC0","#48D1CC","#BDB76B","#B03060"};
     private String[] number_03_color={"#548B54","#87CEFA","#CD0000","#8B0000","#B3EE3A","#8B795E","#CDAD00","#48D1CC"};
-    private String[] number_04_color={"#87CEFA","#473C8B","#FF00FF","#8B795E","#48D1CC","#8B0000","#FF3030","#C1CDC1"};
+    private String[] number_06_color={"#87CEFA","#473C8B","#FF00FF","#8B795E","#48D1CC","#8B0000","#FF3030","#C1CDC1"};
     private String[] number_05_color={"#CD3333","#CD6600","#C1CDCD","#87CEFA","#43CD80","#FF00FF","#C1CDC1","#DB7093"};
-    private String[] number_06_color={"#8B0000","#BDB76B","#B22222","#FF00FF","#C1CDC1","#4169E1","#87CEFA","#8B5A00"};
+    private String[] number_04_color={"#8B0000","#BDB76B","#B22222","#FF00FF","#C1CDC1","#4169E1","#87CEFA","#8B5A00"};
     private RelativeLayout mLayout;
 
     @Override
@@ -104,7 +104,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private boolean alertShow=true;
+    @Override
+    protected void onStart() {
+        super.onStart();
+        initView();
+    }
+
+        private boolean alertShow=true;
     private void toastMsg(String message){
         if(alertShow){
             alertShow=false;
@@ -170,16 +176,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 clickNum++;
                 createNumber();
                 break;
-            case R.id.btn_start://开始
+            case R.id.btn_start:
                 if(isClick){
-                    mBtnStart.setBackground(getDrawable(R.drawable.a_start));
+                    mBtnStart.setBackgroundResource(R.drawable.a_start);
                     mHandler.sendEmptyMessage(1000);
                     MainActivity.isStart=true;
                     isClick=false;
                 }else{
-
-
-                    mBtnStart.setBackground();
+                    mBtnStart.setBackgroundResource(R.drawable.a_pause);
                     mHandler.removeMessages(1000);
                     MainActivity.isStart=false;
                     isClick=true;
@@ -189,13 +193,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    /**
-     * 点重置后，初始化
-     * */
     private void createNumber() {
         MainActivity.isStart=false;
         isClick=true;
-        mBtnStart.setText("开始");
+        mBtnStart.setBackgroundResource(R.drawable.a_start);
         mHandler.removeMessages(1000);
         mTvTime.setText("00:00");
         timeNum=0;
@@ -294,11 +295,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
 
         videoviews = (CustomVideoView) findViewById(R.id.videoviews);
-        //设置播放加载路径
         videoviews.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.lingmeng));
-        //播放
         videoviews.start();
-        //循环播放
         videoviews.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {

@@ -19,11 +19,9 @@ public class SysApplication extends Application {
         }
         return instance;
     }
-    //将启动的进程添加进入list中
     public void addActivity(Activity activity){
         mList.add(activity);
     }
-    //将list中的activity全部销毁
     public void query() {
         for (Activity activity : mList) {
             if (activity != Welcome.welcome) {
@@ -39,7 +37,6 @@ public class SysApplication extends Application {
             }
         }
     }
-    //杀进程
     @Override
     public void onLowMemory() {
         super.onLowMemory();

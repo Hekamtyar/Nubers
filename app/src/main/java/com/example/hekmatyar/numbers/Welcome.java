@@ -3,13 +3,10 @@ package com.example.hekmatyar.numbers;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button;
-import android.widget.VideoView;
 
 import com.tapadoo.alerter.Alert;
 import com.tapadoo.alerter.Alerter;
@@ -61,6 +58,11 @@ public class Welcome extends AppCompatActivity {
       });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        initView();
+    }
     private boolean alertShow=true;
     private void toastMsg(String message){
         if(alertShow){
@@ -81,11 +83,8 @@ public class Welcome extends AppCompatActivity {
     private void initView() {
 
         videoview = (CustomVideoView) findViewById(R.id.videoview);
-        //设置播放加载路径
         videoview.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.saber));
-        //播放
         videoview.start();
-        //循环播放
         videoview.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {
